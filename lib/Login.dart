@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  const Login({super.key, required this.home});
+
+  final Function home;
 
   @override
   State<Login> createState() => _LoginState();
@@ -10,9 +13,19 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  void doNothing() => {
+  TextEditingController textEditingController = TextEditingController();
 
-  };
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  Future<void> saveName() async{
+    final SharedPreferences prefs = await _prefs;
+    if (_prefs != Null){
+      prefs.setString('name', textEditingController.text);
+      setState(() {
+        textEditingController.text = '';
+      });
+    }
+  }
 
 
   @override
@@ -21,12 +34,17 @@ class _LoginState extends State<Login> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(
+          SizedBox(
             width: 250,
             child: TextField(
-              decoration: InputDecoration(
+              onSubmitted: (value){
+                saveName();
+                widget.home(0);
+              },
+              controller: textEditingController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Username'
+                labelText: 'Username',
               ),
             ),
           ),
@@ -34,7 +52,10 @@ class _LoginState extends State<Login> {
           SizedBox(
             width: 250,
             child: ElevatedButton(
-              onPressed: () { print('Hlo'); },
+              onPressed: (){
+                saveName();
+                widget.home(0);
+              },
               child: const Text('Submit'),
             ),
           )

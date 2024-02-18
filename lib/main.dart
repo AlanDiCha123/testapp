@@ -23,8 +23,19 @@ class _MyAppState extends State<MyApp> {
     const Home(),
     const CalculatorAppHome(),
     const Counter(),
-    const Login()
   ];
+  
+  void home(int n){
+    setState(() {
+      _selectedIndex = n;
+    });
+  }
+  
+  @override
+  void initState() {
+    super.initState();
+    _widgetOptions.add(Login(home: home));
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,13 +50,19 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Bottom Navigation Bar',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: true,
+        brightness: Brightness.light,
+        primaryColor: Colors.deepOrange,
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        primaryColor: Colors.deepOrangeAccent
       ),
       routes: {
         '/home': (context) => const Home(),
         '/calculator': (context) => const CalculatorAppHome(),
         '/counter': (context) => const Counter(),
-        '/login': (context) => const Login(),
       },
       debugShowCheckedModeBanner: false,
       home: Scaffold(

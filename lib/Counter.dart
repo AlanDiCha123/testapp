@@ -42,10 +42,12 @@ class _CounterState extends State<Counter> {
             children: <FloatingActionButton>[
               FloatingActionButton(
                 onPressed: _incrementCounter,
+                backgroundColor: Colors.deepOrange,
                 child: const Icon(Icons.plus_one),
               ),
               FloatingActionButton(
                 onPressed: _decrementCounter,
+                backgroundColor: Colors.deepOrange,
                 child: const Icon(Icons.exposure_minus_1),
               ),
             ],
