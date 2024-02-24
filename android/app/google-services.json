@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978015945004",
+    "project_id": "project-2107943287037884378",
+    "storage_bucket": "project-2107943287037884378.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978015945004:android:a1b7d3a43265b874202c89",
+        "android_client_info": {
+          "package_name": "mx.unam.aragon.testapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXBfuMTTem6XKrSRvV8Za_k7JkvRVQWdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
