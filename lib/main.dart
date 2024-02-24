@@ -3,6 +3,7 @@ import 'Calculator.dart';
 import 'Home.dart';
 import 'Counter.dart';
 import 'Login.dart';
+import 'geolocation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class _MyAppState extends State<MyApp> {
     const Home(),
     const CalculatorAppHome(),
     const Counter(),
+    const Geo(),
   ];
   
   void home(int n){
@@ -63,6 +65,7 @@ class _MyAppState extends State<MyApp> {
         '/home': (context) => const Home(),
         '/calculator': (context) => const CalculatorAppHome(),
         '/counter': (context) => const Counter(),
+        '/geo': (context) => const Geo(),
       },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -88,6 +91,10 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarItem(
               icon: Icon(Icons.plus_one),
               label: 'Counter',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.location_on),
+              label: 'Location',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.login),
