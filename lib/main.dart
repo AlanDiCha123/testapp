@@ -8,6 +8,7 @@ import 'Login.dart';
 import 'geolocation.dart';
 import 'calendar.dart';
 import 'AddEvent.dart';
+import 'Image.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -33,6 +34,7 @@ class _MyAppState extends State<MyApp> {
     const Counter(),
     const Geo(),
     const Calendar(),
+    const ImageView(),
   ];
   
   void home(int n){
@@ -76,6 +78,7 @@ class _MyAppState extends State<MyApp> {
         '/geo': (context) => const Geo(),
         '/calendar': (context) => const Calendar(),
         '/addEvent': (context) => const AddEvent(),
+        '/image': (context) => const ImageView(),
       },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -109,6 +112,10 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month),
               label: 'Calendar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.image),
+              label: 'Image',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.login),
